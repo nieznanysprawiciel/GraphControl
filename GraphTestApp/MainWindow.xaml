@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
 	<Grid>
-		<Rectangle Width="100" Height="100" Fill="#FF231E1E" HorizontalAlignment="Left"/>
+		<!--<Rectangle Width="100" Height="100" Fill="#FF231E1E" HorizontalAlignment="Left"/>
 		<Border Width="100" Height="20" HorizontalAlignment="Left">
 			<Border.Background>
 				<LinearGradientBrush EndPoint="1.0,0.5" StartPoint="0.0,0.5">
@@ -18,17 +18,22 @@
 					<GradientStop Color="#004DDC0B" Offset="0"/>
 				</LinearGradientBrush>
 			</Border.Background>
-			<!--<Border.OpacityMask>
+			--><!--<Border.OpacityMask>
 				<LinearGradientBrush EndPoint="1.0,0.5" StartPoint="0.0,0.5">
 					<GradientStop Color="#AF000000" Offset="0.816"/>
 					<GradientStop Offset="1"/>
 					<GradientStop Color="#AF000000" Offset="0.682"/>
 					<GradientStop/>
 				</LinearGradientBrush>
-			</Border.OpacityMask>-->
+			</Border.OpacityMask>--><!--
 			<TextBlock Foreground="White" Background="Transparent" Text="zobaczmy jak to wygląda" />
-		</Border>
-		<graph:Slot Width="40" Height="40" SlotColor="#FF00D300" />
+		</Border>-->
+		
+		
+		<!--<Rectangle Fill="Black" HorizontalAlignment="Center" Width="100" Height="100" />-->
+		<graph:Slot Width="Auto" Height="20" SlotColor="#FF00D300" HorizontalAlignment="Center">
+tsafsa
+		</graph:Slot>
 		<!--<graph:SlotSocket Width="40" Height="40" Background="Black" />-->
 
 		<!--<Grid Margin="30,0,0,0">

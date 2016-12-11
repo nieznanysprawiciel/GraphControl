@@ -30,7 +30,7 @@
 
 					<Grid>
 						<Ellipse Width="{TemplateBinding Height}" Height="{TemplateBinding Height}" Fill="{TemplateBinding SocketBrush}" />
-						<Ellipse Width="16" Height="16" Fill="{TemplateBinding Background}" />
+						<Ellipse Width="13" Height="13" Fill="{TemplateBinding Background}" />
 					</Grid>
 					
 				</ControlTemplate>
@@ -41,6 +41,7 @@
 	<Style TargetType="{x:Type local:Slot}">
 		<Setter Property="Background" Value="Black" />
 		<Setter Property="SlotColor" Value="Orange" />
+		<Setter Property="Padding" Value="5,0,5,0" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate  TargetType="{x:Type local:Slot}">
@@ -58,13 +59,20 @@
 					
 						<Border x:Name="PART_MainBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
 							<StackPanel Orientation="Horizontal">
-								<ContentControl x:Name="PART_TextContent" 
-												HorizontalAlignment="{TemplateBinding HorizontalAlignment}" 
-												VerticalAlignment="{TemplateBinding VerticalAlignment}" >
-								</ContentControl>
+								<ContentPresenter x:Name="PART_TextContent" 
+													HorizontalAlignment="{TemplateBinding HorizontalAlignment}" 
+													VerticalAlignment="Center" 
+													Margin="{TemplateBinding Padding}">
+									<ContentPresenter.Resources>
+										<Style TargetType="{x:Type TextBlock}">
+											<Setter Property="Background" Value="Transparent" />
+											<Setter Property="Foreground" Value="#FFCFC8C8" />
+										</Style>
+									</ContentPresenter.Resources>
+								</ContentPresenter>
 
 								<local:SlotSocket x:Name="PART_Socket"
-													Width="{TemplateBinding Width}"
+													Width="{TemplateBinding Height}"
 													Height="{TemplateBinding Height}"
 													Color="{TemplateBinding SlotColor}"
 													Background="{TemplateBinding Background}"/>

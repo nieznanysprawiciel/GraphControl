@@ -20,11 +20,11 @@ namespace Graph
 	[TemplateVisualState( Name = "Normal", GroupName = "MouseStates" )]
 	[TemplateVisualState( Name = "MouseOn", GroupName = "MouseStates" )]
 	[TemplateVisualState( Name = "MouseClicked", GroupName = "MouseStates" )]
-	public class Slot : Control
+	public class Slot : ContentControl
 	{
 		Border					MainBorder;
 		SlotSocket				Socket;
-		ContentControl          TextContent;
+		//ContentControl          TextContent;
 
 
 
@@ -54,7 +54,7 @@ namespace Graph
 					MainBorder = mainBorder;
 				}
 
-				TextContent = this.Template.FindName( "PART_TextContent", this ) as ContentControl;
+				//TextContent = this.Template.FindName( "PART_TextContent", this ) as ContentControl;
 				Socket = this.Template.FindName( "PART_Socket", this) as SlotSocket;
 			}
 
