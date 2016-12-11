@@ -48,6 +48,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converters\OffsetConverter.cs" />
+    <Compile Include="Converters\ScaleConverter.cs" />
     <Compile Include="Slot.cs" />
     <Compile Include="SlotSocket.cs" />
     <Page Include="Themes\Generic.xaml">

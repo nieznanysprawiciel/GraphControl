@@ -1,10 +1,13 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:converter="clr-namespace:Graph.Converters"
     xmlns:local="clr-namespace:Graph">
-	
-	
-    <Style TargetType="{x:Type local:GraphArea}">
+
+	<converter:ScaleConverter x:Key="OffsetConverter" />
+
+
+	<Style TargetType="{x:Type local:GraphArea}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:GraphArea}">
@@ -30,7 +33,9 @@
 
 					<Grid>
 						<Ellipse Width="{TemplateBinding Height}" Height="{TemplateBinding Height}" Fill="{TemplateBinding SocketBrush}" />
-						<Ellipse Width="13" Height="13" Fill="{TemplateBinding Background}" />
+						<Ellipse Width="{TemplateBinding Height, Converter={StaticResource OffsetConverter}, ConverterParameter=0.65}"
+								 Height="{TemplateBinding Height, Converter={StaticResource OffsetConverter}, ConverterParameter=0.65}"
+								 Fill="{TemplateBinding Background}" />
 					</Grid>
 					
 				</ControlTemplate>

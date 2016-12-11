@@ -31,7 +31,7 @@
 		
 		
 		<!--<Rectangle Fill="Black" HorizontalAlignment="Center" Width="100" Height="100" />-->
-		<graph:Slot Width="Auto" Height="20" SlotColor="#FF00D300" HorizontalAlignment="Center">
+		<graph:Slot Width="Auto" Height="40" SlotColor="#FF00D300" HorizontalAlignment="Center">
 tsafsa
 		</graph:Slot>
 		<!--<graph:SlotSocket Width="40" Height="40" Background="Black" />-->
