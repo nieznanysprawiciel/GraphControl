@@ -17,6 +17,9 @@ namespace Graph
 	[TemplatePart( Name = "PART_MainBorder", Type = typeof( Border ) )]
 	[TemplatePart( Name = "PART_TextContent", Type = typeof( ContentControl ) )]
 	[TemplatePart( Name = "PART_Socket", Type = typeof( SlotSocket ) )]
+	[TemplateVisualState( Name = "Normal", GroupName = "MouseStates" )]
+	[TemplateVisualState( Name = "MouseOn", GroupName = "MouseStates" )]
+	[TemplateVisualState( Name = "MouseClicked", GroupName = "MouseStates" )]
 	public class Slot : Control
 	{
 		Border					MainBorder;
@@ -24,13 +27,11 @@ namespace Graph
 		ContentControl          TextContent;
 
 
-		//// Resources
-		//GradientBrush           m_socketBrush;
 
 		#region DependancyProperties
 
 		public static readonly DependencyProperty SlotColorProperty = DependencyProperty.Register( "SlotColor", typeof( Color ), typeof( Slot ), new PropertyMetadata( Colors.Green ) );
-
+		public static readonly DependencyProperty SlotDecoratorBrushProperty = DependencyProperty.Register( "SlotDecoratorBrush", typeof( Brush ), typeof( Slot ) );
 		#endregion
 
 
@@ -47,7 +48,7 @@ namespace Graph
 
 			if( this.Template != null )
 			{
-				Border mainBorder = this.Template.FindName("PART_MainBorder", this) as Border;
+				Border mainBorder = this.Template.FindName( "PART_MainBorder", this ) as Border;
 				if( mainBorder != MainBorder )
 				{
 					MainBorder = mainBorder;
@@ -56,7 +57,24 @@ namespace Graph
 				TextContent = this.Template.FindName( "PART_TextContent", this ) as ContentControl;
 				Socket = this.Template.FindName( "PART_Socket", this) as SlotSocket;
 			}
+
+			this.MouseEnter += new MouseEventHandler( MouseEnterHandler );
+			this.MouseLeave += new MouseEventHandler( MouseLeaveHandler );
 		}
+
+		#region EventsHandlers
+
+		void MouseLeaveHandler( object sender, MouseEventArgs e )
+		{
+			VisualStateManager.GoToState( this, "Normal", true );
+		}
+
+		void MouseEnterHandler( object sender, MouseEventArgs e )
+		{
+			VisualStateManager.GoToState( this, "MouseOn", true );
+		}
+
+		#endregion
 
 		#region Properties
 
@@ -69,9 +87,22 @@ namespace Graph
 			set
 			{
 				this.SetValue( SlotColorProperty, value );
+				//Socket.SetColor( value );
 			}
 		}
 
+		public Brush SlotDecoratorBrush
+		{
+			get
+			{
+				return (Brush)this.GetValue( SlotDecoratorBrushProperty );
+			}
+
+			set
+			{
+				this.SetValue( SlotDecoratorBrushProperty, value );
+			}
+		}
 
 		#endregion
 	}

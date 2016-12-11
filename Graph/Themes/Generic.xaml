@@ -21,14 +21,16 @@
     </Style>
 
 	<Style TargetType="{x:Type local:SlotSocket}">
+		<Setter Property="Color" Value="Orange" />
+		<Setter Property="Width" Value="20" />
+		<Setter Property="Height" Value="20" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type local:SlotSocket}">
-										
+
 					<Grid>
-						<!--<Ellipse Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Fill="{TemplateBinding Background}"/>-->
-						<Ellipse Width="20" Height="20" Fill="{TemplateBinding SocketBrush}"/>
-						<Ellipse Width="12" Height="12" Fill="{TemplateBinding Background}"/>
+						<Ellipse Width="{TemplateBinding Height}" Height="{TemplateBinding Height}" Fill="{TemplateBinding SocketBrush}" />
+						<Ellipse Width="16" Height="16" Fill="{TemplateBinding Background}" />
 					</Grid>
 					
 				</ControlTemplate>
@@ -38,25 +40,66 @@
 
 	<Style TargetType="{x:Type local:Slot}">
 		<Setter Property="Background" Value="Black" />
+		<Setter Property="SlotColor" Value="Orange" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate  TargetType="{x:Type local:Slot}">
+					<ControlTemplate.Resources>
+						<LinearGradientBrush x:Key="MainBorderBackground" EndPoint="1.0,0.5" StartPoint="0.0,0.5">
+							<GradientStop Color="#AF4DDC0B" Offset="0.732"/>
+							<GradientStop Color="#004DDC0B" Offset="1"/>
+							<GradientStop Color="#AF4DDC0B" Offset="0.393"/>
+							<GradientStop Color="#004DDC0B" Offset="0"/>
+						</LinearGradientBrush>
+
+						<SolidColorBrush x:Key="MainBorderTransparent" Color="Transparent" />
+					</ControlTemplate.Resources>
 					
-					<StackPanel Orientation="Horizontal">
+					
 						<Border x:Name="PART_MainBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
-							<ContentControl x:Name="PART_body" 
-                                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}" 
-                                    VerticalAlignment="{TemplateBinding VerticalAlignment}" >
-							</ContentControl>
-						</Border>
-						<local:SlotSocket x:Name="PART_socket"
-										  Width="{TemplateBinding Width}"
-										  Height="{TemplateBinding Height}"
-										  Color="{TemplateBinding SlotColor}"
-										  Background="{TemplateBinding Background}"/>
-						
-					</StackPanel>
+							<StackPanel Orientation="Horizontal">
+								<ContentControl x:Name="PART_TextContent" 
+												HorizontalAlignment="{TemplateBinding HorizontalAlignment}" 
+												VerticalAlignment="{TemplateBinding VerticalAlignment}" >
+								</ContentControl>
+
+								<local:SlotSocket x:Name="PART_Socket"
+													Width="{TemplateBinding Width}"
+													Height="{TemplateBinding Height}"
+													Color="{TemplateBinding SlotColor}"
+													Background="{TemplateBinding Background}"/>
+							</StackPanel>
+
+
+							<VisualStateManager.VisualStateGroups>
+								<VisualStateGroup Name="MouseStates" >
+
+									<VisualState Name="Normal" >
+										<Storyboard>
+											<ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_MainBorder" Storyboard.TargetProperty="Background" >
+											<DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource MainBorderTransparent}" />
+											</ObjectAnimationUsingKeyFrames>
+										</Storyboard>
+									</VisualState>
+
+									<VisualState Name="MouseOn" >
+										<Storyboard>
+											<ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_MainBorder" Storyboard.TargetProperty="Background" >
+												<DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource MainBorderBackground}" />
+											</ObjectAnimationUsingKeyFrames>
+										</Storyboard>
+									</VisualState>
+
+									<VisualState Name="MouseClicked" >
+
+									</VisualState>
+
+								</VisualStateGroup>
+							</VisualStateManager.VisualStateGroups>
+
 					
+						</Border>
+
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
