@@ -23,6 +23,8 @@ namespace GraphTestApp
 		public MainWindow()
 		{
 			InitializeComponent();
+
+			DataContext = new GraphRepr.GraphNodeRepr();
 		}
 	}
 }

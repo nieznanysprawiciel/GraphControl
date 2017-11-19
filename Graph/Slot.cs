@@ -24,7 +24,7 @@ namespace Graph
 	{
 		Border					MainBorder;
 		SlotSocket				Socket;
-		//ContentControl          TextContent;
+		ContentControl          TextContent;
 
 
 
@@ -54,7 +54,7 @@ namespace Graph
 					MainBorder = mainBorder;
 				}
 
-				//TextContent = this.Template.FindName( "PART_TextContent", this ) as ContentControl;
+				TextContent = this.Template.FindName( "PART_TextContent", this ) as ContentControl;
 				Socket = this.Template.FindName( "PART_Socket", this) as SlotSocket;
 			}
 

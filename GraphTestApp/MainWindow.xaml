@@ -30,10 +30,13 @@
 		</Border>-->
 		
 		
-		<!--<Rectangle Fill="Black" HorizontalAlignment="Center" Width="100" Height="100" />-->
-		<graph:Slot Width="Auto" Height="40" SlotColor="#FF00D300" HorizontalAlignment="Center">
+		<graph:Slot Width="Auto" Height="40" SlotColor="#FF00D300" HorizontalAlignment="Center" VerticalAlignment="Top">
 tsafsa
 		</graph:Slot>
+		<TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="369,62,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+
+		<graph:SlotsGroup Width="300" Height="80" ItemsSource="{Binding Slots}" >
+		</graph:SlotsGroup>
 		<!--<graph:SlotSocket Width="40" Height="40" Background="Black" />-->
 
 		<!--<Grid Margin="30,0,0,0">
