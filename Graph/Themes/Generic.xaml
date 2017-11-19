@@ -133,11 +133,13 @@
 						</Grid.RowDefinitions>
 						<Border Grid.Row="0" 
 								BorderThickness="1"
-								CornerRadius="2,2,0,0">
+								CornerRadius="5,5,0,0"
+								BorderBrush="Gray"
+								Background="Transparent">
 							<ContentPresenter Margin="4" ContentSource="Header" RecognizesAccessKey="True" />
 						</Border>
 
-						<Border Grid.Row="1" BorderThickness="1,0,1,1" CornerRadius="0,0,2,2">
+						<Border Grid.Row="1" BorderThickness="1,0,1,1" CornerRadius="0,0,5,5" BorderBrush="Gray" Background="Transparent" >
 							<ContentPresenter Margin="4" />
 						</Border>
 					</Grid>

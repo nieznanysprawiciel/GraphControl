@@ -12,7 +12,7 @@ namespace GraphTestApp.GraphRepr
 		ObservableCollection< string >      m_slots;
 
 
-		string								GroupName { get; set; }
+		public string						GroupName { get; set; }
 
 		public GraphNodeRepr()
 		{

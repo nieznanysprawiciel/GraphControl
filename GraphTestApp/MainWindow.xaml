@@ -14,7 +14,7 @@
 	tsafsa
 			</graph:Slot>
 
-			<graph:SlotsGroup Width="Auto" Height="Auto" GroupName="GroupName" HorizontalAlignment="Center" ItemsSource="{Binding Slots}" Background="Azure" BorderThickness="2" BorderBrush="Black" >
+			<graph:SlotsGroup Width="Auto" Height="Auto" GroupName="{Binding GroupName}" HorizontalAlignment="Center" ItemsSource="{Binding Slots}" Background="Azure" BorderThickness="2" BorderBrush="Black" >
 			</graph:SlotsGroup>
 			<!--<graph:SlotSocket Width="40" Height="40" Background="Black" />-->
 		</StackPanel>
