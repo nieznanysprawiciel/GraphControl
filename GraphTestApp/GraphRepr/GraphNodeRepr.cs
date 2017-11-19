@@ -12,6 +12,8 @@ namespace GraphTestApp.GraphRepr
 		ObservableCollection< string >      m_slots;
 
 
+		string								GroupName { get; set; }
+
 		public GraphNodeRepr()
 		{
 			m_slots = new ObservableCollection<string>();
@@ -19,6 +21,8 @@ namespace GraphTestApp.GraphRepr
 			m_slots.Add( "First slot" );
 			m_slots.Add( "Name" );
 			m_slots.Add( "RenderTarget" );
+
+			GroupName = "GroupName";
 		}
 
 

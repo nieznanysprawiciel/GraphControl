@@ -46,9 +46,31 @@ namespace Graph
 	/// </summary>
 	public class SlotsGroup : ItemsControl
 	{
+		#region DependencyProperties
+
+		public static readonly DependencyProperty GroupNameProperty = DependencyProperty.Register( "GroupName", typeof( string ), typeof( SlotsGroup ), new PropertyMetadata( "" ) );
+
+		#endregion
+
+
 		static SlotsGroup()
 		{
 			DefaultStyleKeyProperty.OverrideMetadata( typeof( SlotsGroup ), new FrameworkPropertyMetadata( typeof( SlotsGroup ) ) );
 		}
+
+
+		public string GroupName
+		{
+			get
+			{
+				return (string)this.GetValue( GroupNameProperty );
+			}
+
+			set
+			{
+				this.SetValue( GroupNameProperty, value );
+			}
+		}
+
 	}
 }
