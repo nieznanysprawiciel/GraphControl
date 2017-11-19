@@ -9,14 +9,14 @@
         Title="MainWindow" Height="350" Width="525">
 	<Grid>
 
-		
-		<graph:Slot Width="Auto" Height="40" SlotColor="#FF00D300" HorizontalAlignment="Center" VerticalAlignment="Top">
-tsafsa
-		</graph:Slot>
+		<StackPanel>
+			<graph:Slot Width="Auto" Height="40" SlotColor="#FF00D300" HorizontalAlignment="Center" VerticalAlignment="Top">
+	tsafsa
+			</graph:Slot>
 
-		<graph:SlotsGroup Width="300" Height="80" GroupName="GroupName"  ItemsSource="{Binding Slots}" Background="Azure" BorderThickness="2" BorderBrush="Black" >
-		</graph:SlotsGroup>
-		<!--<graph:SlotSocket Width="40" Height="40" Background="Black" />-->
-
+			<graph:SlotsGroup Width="Auto" Height="Auto" GroupName="GroupName" HorizontalAlignment="Center" ItemsSource="{Binding Slots}" Background="Azure" BorderThickness="2" BorderBrush="Black" >
+			</graph:SlotsGroup>
+			<!--<graph:SlotSocket Width="40" Height="40" Background="Black" />-->
+		</StackPanel>
 	</Grid>
 </Window>
